@@ -8,6 +8,7 @@ import { SafeAreaView } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
 import axios from 'axios';
 import Papa from 'papaparse';
+import ReactTable from 'react-table';
 
 const { height, width } = Dimensions.get('window')
 
@@ -20,7 +21,7 @@ export default class HomeScr extends Component {
     constructor(props) {
         super(props);
         this.state = {
-        articles1: [], articles2: [], articles3: [], articles4: [], articles5: []
+        articles1: [], articles2: [], articles3: [], articles4: [], articles5: [], articles6: [], articles7: [], articles8: [], articles9: []
         };
     }
     
@@ -30,12 +31,14 @@ export default class HomeScr extends Component {
             this.startHeaderHeight = 100 + StatusBar.currentHeight
         }
         this.getArticles(this.props.default);
+        this.getArticles1(this.props.default);
     }
     
     componentWillReceiveProps(nextProps) {
         if (nextProps !== this.props) {
             //this.setState({ url: `https://newsapi.org/v2/top-headlines?sources=${nextProps.default}&apiKey=${process.env.REACT_APP_API_KEY}` });
             this.setState({ url: `https://api.tdameritrade.com/v1/marketdata/quotes?apikey=YIJHN1VHR4T2AKMDLGFGSLYBKBBESWEI&symbol=FB%2CAAPL%2CAMZN%2CGOOGL%2CNFLX` });
+                          this.getArticles(nextProps.default);
                           this.getArticles1(nextProps.default);
                           }
                           }
@@ -45,8 +48,9 @@ export default class HomeScr extends Component {
                           const apiKey = '7091129cf7f44cb2ae533fe602082582'
                           // Make HTTP reques with Axios
                           axios
-                          .get(`https://api.tdameritrade.com/v1/marketdata/quotes?apikey=YIJHN1VHR4T2AKMDLGFGSLYBKBBESWEI&symbol=FB%2CAAPL%2CAMZN%2CGOOGL%2CNFLX`)
+                          .get('https://api.tdameritrade.com/v1/marketdata/quotes?apikey=YIJHN1VHR4T2AKMDLGFGSLYBKBBESWEI&symbol=FB%2CAAPL%2CAMZN%2CGOOGL%2CNFLX')
                                .then(res => {
+                                                     
                                      const articles1 = res.data.FB;
                                      const articles2 = res.data.AAPL;
                                      const articles3 = res.data.AMZN;
@@ -60,6 +64,22 @@ export default class HomeScr extends Component {
                                      this.setState({ articles4: articles4 });
                                      this.setState({ articles5: articles5 });
                                      })
+                          }
+                          
+                          getArticles1(url) {
+                          axios
+                        .get('https://api.tdameritrade.com/v1/marketdata/quotes?apikey=YIJHN1VHR4T2AKMDLGFGSLYBKBBESWEI&symbol=SPY%2CQQQ%2CIWM')
+                                   .then(resa => {
+                                         
+                                         const articles6 = resa.data.SPY;
+                                         const articles7 = resa.data.QQQ;
+                                         const articles8 = resa.data.IWM;
+                                         
+                                         this.setState({ articles6: articles6 });
+                                         this.setState({ articles7: articles7 });
+                                         this.setState({ articles8: articles8 });
+                                         })
+                          
                                .catch(error => {
                                       console.log(error);
                                       });
@@ -89,6 +109,9 @@ export default class HomeScr extends Component {
                                        style={{ flex: 1, fontWeight: '100', backgroundColor: 'white'}}/>
                                        </View>
                                        </View>
+                                       <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 21,
+                                       marginTop: 5, marginBottom: 20}}>FAANG Stocks</Text>
+                                       <View style={{marginHorizontal: 15}}>
                                        <ScrollView scrollEventThrottle={4} horizontal={true}>
                                        <Stock datum={this.state.articles1}/>
                                        <Stock datum={this.state.articles2}/>
@@ -96,6 +119,15 @@ export default class HomeScr extends Component {
                                        <Stock datum={this.state.articles4}/>
                                        <Stock datum={this.state.articles5}/>
                                        </ScrollView>
+                                       <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 21,
+                                       marginTop: 5, marginBottom: 20}}>Indices</Text>
+                                       <ScrollView scrollEventThrottle={4} horizontal={true}>
+                                       <Stock datum={this.state.articles6}/>
+                                       <Stock datum={this.state.articles7}/>
+                                       <Stock datum={this.state.articles8}/>
+                                       <Stock datum={this.state.articles9}/>
+                                       </ScrollView>
+                                       </View>
                                        </View>
                                        );
                                }
