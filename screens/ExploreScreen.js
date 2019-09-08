@@ -85,7 +85,7 @@ export default class HomeScr extends Component {
                                
                                render() {
                                return (
-                                       <View>
+                                       <ScrollView scrollEventThrottle={16}>
                                        <Text style={{ fontSize: 34, fontWeight: '700', paddingHorizontal: 20,
                                        marginTop: Platform.OS == 'android' ? 60 : 30}}>Explore</Text>
                                        <View style={{ height: this.startHeaderHeight, backgroundColor: 'white', borderBottomWidth: 0}}>
@@ -126,7 +126,7 @@ export default class HomeScr extends Component {
                                        <Stock datum={this.state.articles9}/>
                                        </ScrollView>
                                        </View>
-                                       </View>
+                                       </ScrollView>
                                        );
                                }
                                }
