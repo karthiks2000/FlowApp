@@ -85,7 +85,7 @@ export default class HomeScr extends Component {
                                
                                render() {
                                return (
-                                       <ScrollView scrollEventThrottle={16}>
+                                       <ScrollView scrollEventThrottle={16} showsVerticalScrollIndicator={false}>
                                        <Text style={{ fontSize: 34, fontWeight: '700', paddingHorizontal: 20,
                                        marginTop: Platform.OS == 'android' ? 60 : 30}}>Explore</Text>
                                        <View style={{ height: this.startHeaderHeight, backgroundColor: 'white', borderBottomWidth: 0}}>
@@ -110,7 +110,7 @@ export default class HomeScr extends Component {
                                        <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 21,
                                        marginTop: 5, marginBottom: 20}}>FAANG Stocks</Text>
                                        <View style={{marginHorizontal: 15}}>
-                                       <ScrollView scrollEventThrottle={4} horizontal={true}>
+                                       <ScrollView scrollEventThrottle={4} horizontal={true} showsHorizontalScrollIndicator={false}>
                                        <Stock datum={this.state.articles1}/>
                                        <Stock datum={this.state.articles2}/>
                                        <Stock datum={this.state.articles3}/>
@@ -119,7 +119,7 @@ export default class HomeScr extends Component {
                                        </ScrollView>
                                        <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 21,
                                        marginTop: 5, marginBottom: 20}}>Indices</Text>
-                                       <ScrollView scrollEventThrottle={4} horizontal={true}>
+                                       <ScrollView scrollEventThrottle={4} horizontal={true} showsHorizontalScrollIndicator={false}>
                                        <Stock datum={this.state.articles6}/>
                                        <Stock datum={this.state.articles7}/>
                                        <Stock datum={this.state.articles8}/>

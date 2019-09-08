@@ -79,7 +79,7 @@ export default class HomeScr extends Component {
               style={{ flex: 1, fontWeight: '100', backgroundColor: 'white'}}/>
           </View>                
         </View>
-        <ScrollView scrollEventThrottle={16}>
+        <ScrollView scrollEventThrottle={16} showsVerticalScrollIndicator={false}>
           {this.state.articles.map((news, i) => {
             return (
               <View key={i}>
