@@ -17,11 +17,11 @@ export default class Stock extends React.Component {
                 <View style={card.stockContainer}>
                 <View style={{flexDirection:'row',justifyContent:'space-between'}}>
                 <View style={{flex: 7, flexDirection:'column', marginLeft: 5}}>
-                <Text style={{ fontSize: 24, fontWeight: '600'}}>{datum["symbol"]}</Text>
-                <Text style={{ fontSize: 16, fontWeight: '400'}}>Open: {datum["openPrice"]}</Text>
-                <Text style={{ fontSize: 16, fontWeight: '400'}}>High: {datum["highPrice"]}</Text>
-                <Text style={{ fontSize: 16, fontWeight: '400'}}>Low: {datum["lowPrice"]}</Text>
-                <Text style={{ fontSize: 16, fontWeight: '400'}}>Close: {datum["closePrice"]}</Text>
+                <Text style={{ fontSize: 24, fontWeight: '600'}}>{datum[0][44]}</Text>
+                <Text style={{ fontSize: 16, fontWeight: '400'}}>Open: {datum[0][44]}</Text>
+                <Text style={{ fontSize: 16, fontWeight: '400'}}>High: {datum[0][44]}</Text>
+                <Text style={{ fontSize: 16, fontWeight: '400'}}>Low: {datum[0][44]}</Text>
+                <Text style={{ fontSize: 16, fontWeight: '400'}}>Close: {datum[0][44]}</Text>
                 </View>
                 </View>
                 </View>
