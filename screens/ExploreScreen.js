@@ -7,8 +7,6 @@ import Stock from '../components/Stock';
 import { SafeAreaView } from 'react-navigation';
 import Icon from 'react-native-vector-icons/Ionicons'
 import axios from 'axios';
-import Papa from 'papaparse';
-import ReactTable from 'react-table';
 
 const { height, width } = Dimensions.get('window')
 
