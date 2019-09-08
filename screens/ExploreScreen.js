@@ -80,10 +80,21 @@ export default class HomeScr extends Component {
                                        style={{ flex: 1, fontWeight: '100', backgroundColor: 'white'}}/>
                                        </View>
                                        </View>
+<<<<<<< HEAD
                                        <ScrollView scrollEventThrottle={16} showsVerticalScrollIndicator={false}>
                                        <View>
                                        <Stock datum={this.state.articles}/>
                                        </View>
+=======
+                                       <ScrollView scrollEventThrottle={4} horizontal={true}>
+                                       <Text style={{ fontSize: 24, fontWeight: '700', paddingHorizontal: 20,
+                                       marginTop: 5, marginBottom: 20}}>FAANG Stocks</Text>
+                                       <Stock datum={this.state.articles1}/>
+                                       <Stock datum={this.state.articles2}/>
+                                       <Stock datum={this.state.articles3}/>
+                                       <Stock datum={this.state.articles4}/>
+                                       <Stock datum={this.state.articles5}/>
+>>>>>>> parent of eab3342... Revert
                                        </ScrollView>
                                        </View>
                                        );
