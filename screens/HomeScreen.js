@@ -47,7 +47,6 @@ export default class HomeScr extends Component {
       .then(res => {
         const articles = res.data.articles;
         // Set state with result
-        console.log(articles);
         this.setState({ articles: articles });
       })
       .catch(error => {
@@ -80,13 +79,15 @@ export default class HomeScr extends Component {
           </View>                
         </View>
         <ScrollView scrollEventThrottle={16} showsVerticalScrollIndicator={false}>
-          {this.state.articles.map((news, i) => {
-            return (
-              <View key={i}>
-                <Article data={news}/>
-              </View>
-            );
-          })}
+          <View>
+            {this.state.articles.map((news, i) => {
+              return (
+                <View key={i}>
+                  <Article data={news}/>
+                </View>
+              );
+            })}
+          </View>
         </ScrollView>
       </View>
     );
